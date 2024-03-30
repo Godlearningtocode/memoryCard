@@ -1,0 +1,88 @@
+#homeSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 2rem;
+  gap: 25px;
+}
+
+.heading {
+  font-size: 5rem;
+}
+
+.heading2 {
+  font-size: 3.5rem;
+}
+
+.difficultyContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  font-size: 1.5rem;
+}
+
+.difficultyCard {
+  padding: 10px 25px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: white;
+  background-color: black;
+}
+
+.bottomRightContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  gap: 15px;
+  position: absolute;
+  top: 90%;
+  right: 200px;
+}
+
+.soundBoxContainer,
+.helpBoxContainer {
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.bottomBoxImage {
+  width: 30px;
+  height: 30px;
+}
+
+.bottomLeftContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  gap: 15px;
+  position: absolute;
+  top: 90%;
+  left: 200px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.activeTheme {
+  background-color: white !important;
+  color: black !important;
+  border: none !important;
+}
+
+.bottomLeftContainer:hover,
+.soundBoxContainer:hover,
+.helpBoxContainer:hover,
+.difficultyCard:hover {
+  cursor: pointer;
+}
