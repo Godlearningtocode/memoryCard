@@ -8,6 +8,7 @@ export default function EasyMode({
   gameOver,
   setGameOver,
   gameDifficulty,
+  setGameDifficulty,
 }) {
   const [shuffledOnePieceList, setShuffledOnePieceList] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
@@ -79,26 +80,52 @@ export default function EasyMode({
   function handleCardClick(Element) {
     setClickedCards((prevClicked) => [...prevClicked, Element]);
     setScore((prevScore) => prevScore + 1);
-    console.log(clickedCards);
+  }
+
+  function HandlePlayAgainClick() {
+    setClickedCards([]);
+    setScore(0);
+    setGameDifficulty(false);
+  }
+
+  function HandleGameOver() {
+    return (
+      <>
+        <div className="gameOverContainer">
+          <div className="gameOverHeading">
+            Congratulations, You have won the game.
+          </div>
+          <div className="gameOverButtons">
+            <button className="playAgain" onClick={HandlePlayAgainClick}>
+              Play Again
+            </button>
+          </div>
+        </div>
+      </>
+    );
   }
 
   return (
     <>
-      <div className="gameCardsContainer">
-        {shuffledOnePieceList.map((Element, index) => {
-          return (
-            <div
-              key={index}
-              className="characterCard"
-              data-value={[Element]}
-              onClick={() => handleCardClick(Element)}
-            >
-              <img src={Element[1]} className="characterImage" alt="" />
-              <div className="characterHeading">{Element[0]}</div>
-            </div>
-          );
-        })}
-      </div>
+      {gameDifficulty !== false && score < 5 ? (
+        <div className="gameCardsContainer">
+          {shuffledOnePieceList.map((Element, index) => {
+            return (
+              <div
+                key={index}
+                className="characterCard"
+                data-value={[Element]}
+                onClick={() => handleCardClick(Element)}
+              >
+                <img src={Element[1]} className="characterImage" alt="" />
+                <div className="characterHeading">{Element[0]}</div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <HandleGameOver />
+      )}
     </>
   );
 }

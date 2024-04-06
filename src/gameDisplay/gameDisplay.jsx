@@ -3,12 +3,19 @@ import { useState, useEffect } from "react";
 import "./gameDisplay.css";
 import EasyMode from "../gameModes/easyMode";
 
-export default function DisplayGameSection({ themeName, gameDifficulty }) {
+export default function DisplayGameSection({
+  themeName,
+  themeLogo,
+  gameDifficulty,
+  score, 
+  setScore, 
+  highScore,
+  setHighScore,
+  setGameDifficulty,
+}) {
   const [gifs, setGifs] = useState([]);
-  const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
-  const [gameOver, setGameOver] = useState(false)
 
+  const [gameOver, setGameOver] = useState(false);
 
   //   useEffect(() => {
   //     const fetchGifs = async () => {
@@ -28,7 +35,7 @@ export default function DisplayGameSection({ themeName, gameDifficulty }) {
 
   let nami = ["Cat burglar Nami", "src/assets/onePiece-Characters/nami.webp"];
   let whitebeard = [
-    'Whitebeard',
+    "Whitebeard",
     "src/assets/onePiece-Characters/whitebeard.webp",
   ];
   let luffy = ["Monkey D Luffy", "src/assets/onePiece-Characters/luffy.webp"];
@@ -47,10 +54,7 @@ export default function DisplayGameSection({ themeName, gameDifficulty }) {
     "King of the Pirates",
     "src/assets/onePiece-Characters/roger.webp",
   ];
-  let sabo = [
-    "Sabo",
-    "src/assets/onePiece-Characters/sabo.webp",
-  ];
+  let sabo = ["Sabo", "src/assets/onePiece-Characters/sabo.webp"];
   let sanji = ["Black leg Sanji", "src/assets/onePiece-Characters/sanji.webp"];
   let shanks = [
     "Red haired Shanks",
@@ -59,17 +63,43 @@ export default function DisplayGameSection({ themeName, gameDifficulty }) {
   let zoro = ["Pirate Hunter", "src/assets/onePiece-Characters/zoro.webp"];
 
   let onePieceList = [];
-  onePieceList.push(nami, whitebeard, luffy, ace, brook, jinbe, law, robin, roger, sabo, sanji, shanks, zoro);
+  onePieceList.push(
+    nami,
+    whitebeard,
+    luffy,
+    ace,
+    brook,
+    jinbe,
+    law,
+    robin,
+    roger,
+    sabo,
+    sanji,
+    shanks,
+    zoro
+  );
+
+  useEffect(() => {
+    highScore < score ? setHighScore(score) : {}
+  },[score])
 
   return (
     <>
       <div id="gameSection">
-        <div className="heading topLeftContainer">{themeName}</div>
+        <div className="heading topLeftContainer"><img src={themeLogo} alt="" className="headingName" width={300 + 'px'} height={100 + 'px'} /></div>
         <div className="topRightContainer scoreboardContainer">
-          <div className="scoreCard"></div>
-          <div className="bestScoreCard"></div>
+          <div className="scoreCard">Score: {score}</div>
+          <div className="bestScoreCard">Highscore: {highScore}</div>
         </div>
-        <EasyMode onePieceList={onePieceList} score={score} setScore={setScore} gameOver={gameOver} setGameOver={setGameOver} gameDifficulty={gameDifficulty} />
+        <EasyMode
+          onePieceList={onePieceList}
+          score={score}
+          setScore={setScore}
+          gameOver={gameOver}
+          setGameOver={setGameOver}
+          gameDifficulty={gameDifficulty}
+          setGameDifficulty={setGameDifficulty}
+        />
       </div>
     </>
   );

@@ -5,6 +5,7 @@ import DisplayGameSection from "../gameDisplay/gameDisplay";
 export default function DisplayHomePage() {
   const [themeName, setThemeName] = useState("One Piece");
   const [themeFont, setThemeFont] = useState("onePiece");
+  const [themeLogo, setThemeLogo] = useState('')
   const [themeBackground, setThemeBackground] = useState(
     "src/assets/onePiece1.jpg"
   );
@@ -23,6 +24,8 @@ export default function DisplayHomePage() {
   const sectionStyle = {
     fontFamily: themeFont,
   };
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   function ChangeThemeNaruto() {
     setThemeName("Naruto");
@@ -96,10 +99,32 @@ export default function DisplayHomePage() {
     setGameDifficulty("hard");
   }
 
+  function HeadingName() {
+    themeName === "One Piece"
+      ? setThemeLogo("src/assets/onePieceLogo.png")
+      : themeName === "Naruto"
+      ? setThemeLogo("src/assets/narutoLogo.png")
+      : themeName === "Dragon Ball"
+      ? setThemeLogo("src/assets/dragonballLogo.png")
+      : setThemeLogo("");
+  }
+
+  useEffect(() => {
+    HeadingName()
+  }, [themeName])
+
   function DisplayCenterSection() {
     return (
       <>
-        <div className="heading">{themeName}</div>
+        <div className="heading">
+          <img
+            src={themeLogo}
+            alt=""
+            className="headingName"
+            width={500 + "px"}
+            height={200 + "px"}
+          />
+        </div>
         <div className="heading2">Memory Game</div>
         <div className="difficultyContainer">
           <div className="difficultyCard" onClick={setDifficultyEasy}>
@@ -124,7 +149,13 @@ export default function DisplayHomePage() {
         ) : (
           <DisplayGameSection
             themeName={themeName}
+            themeLogo={themeLogo}
             gameDifficulty={gameDifficulty}
+            setGameDifficulty={setGameDifficulty}
+            score={score}
+            setScore={setScore}
+            highScore={highScore}
+            setHighScore={setHighScore}
           />
         )}
 
