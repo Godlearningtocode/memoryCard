@@ -3,15 +3,32 @@ import { useEffect, useState } from "react";
 /* eslint-disable react/prop-types */
 export default function EasyMode({
   onePieceList,
+  narutoList,
+  dragonBallList,
   score,
   setScore,
   gameOver,
   setGameOver,
   gameDifficulty,
   setGameDifficulty,
+  themeName
 }) {
-  const [shuffledOnePieceList, setShuffledOnePieceList] = useState([]);
+  const [shuffledThemeList, setShuffledThemeList] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
+let cardsTheme = onePieceList
+  console.log(cardsTheme, themeName)
+
+  function CardThemeArray() {
+if(themeName === 'One Piece') {
+cardsTheme = onePieceList
+} else if (themeName === 'Naruto') {
+  cardsTheme = narutoList
+} else if(themeName === 'Dragon Ball') {
+  cardsTheme = dragonBallList
+} else {
+  alert('Something went wrong with character card theme...')
+}
+  }
 
   function ShuffleArray(array) {
     return array
@@ -21,8 +38,12 @@ export default function EasyMode({
   }
 
   function ShuffleCards() {
+    CardThemeArray()
+    console.log(cardsTheme)
     let shuffledList;
-    let shuffled = ShuffleArray(onePieceList);
+    let shuffled = ShuffleArray(cardsTheme);
+
+    console.log(shuffled)
 
     if (clickedCards.length > 0) {
       shuffled = shuffled.filter(
@@ -55,6 +76,7 @@ export default function EasyMode({
 
       ShuffleArray(shuffledList);
     } else {
+      console.log(shuffled[0], shuffled[1], shuffled[2], shuffled)
       gameDifficulty === "easy"
         ? (shuffledList = [shuffled[0], shuffled[1], shuffled[2]])
         : gameDifficulty === "medium"
@@ -68,9 +90,10 @@ export default function EasyMode({
             shuffled[4],
           ])
         : alert("Error: Something went wrong please refresh...");
+        console.log(shuffledList)
     }
 
-    setShuffledOnePieceList(shuffledList);
+    setShuffledThemeList(shuffledList);
   }
 
   useEffect(() => {
@@ -109,7 +132,8 @@ export default function EasyMode({
     <>
       {gameDifficulty !== false && score < 5 ? (
         <div className="gameCardsContainer">
-          {shuffledOnePieceList.map((Element, index) => {
+          {shuffledThemeList.map((Element, index) => {
+            console.log(shuffledThemeList)
             return (
               <div
                 key={index}
