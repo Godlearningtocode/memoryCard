@@ -19,25 +19,30 @@
 
 .characterImage {
   height: 200px;
-  width: 100%;
+  width: 150px;
 }
 
 .characterHeading {
-  font-size: 1.4rem;
-  min-height: 60px;
+  width: 100%;
+  font-size: 1rem;
   text-align: center;
   align-self: center;
+  background-color: aliceblue;
+  padding: 5px;
 }
 
 .characterCard {
-  width: 150px;
-  background-color: white;
+  max-width: 150px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
   align-items: center;
   justify-content: flex-start;
   color: black;
+}
+
+.cardBackside {
+  min-width: 150px;
+  min-height: 236px;
 }
 
 #gameSection {
@@ -54,6 +59,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  min-height: 236px;
 }
 
 .topLeftContainer {
@@ -65,7 +71,8 @@
 
 .scoreboardContainer {
   position: absolute;
-  top: 10%;
-  right: 200px;
+  top: 21%;
+  color: black;
+  left: 220px;
   color: white;
 }

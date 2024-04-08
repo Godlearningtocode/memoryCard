@@ -1,11 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import "./homePage.css";
 import DisplayGameSection from "../gameDisplay/gameDisplay";
+import DisplayGif from "../gifDisplay/displayGif";
 
 export default function DisplayHomePage() {
+  const [watchGIF, setWatchGIF] = useState(false);
+  const [showHelpBox, setShowHelpBox] = useState(false);
   const [themeName, setThemeName] = useState("One Piece");
   const [themeFont, setThemeFont] = useState("onePiece");
-  const [themeLogo, setThemeLogo] = useState('')
+  const [themeLogo, setThemeLogo] = useState("");
   const [themeBackground, setThemeBackground] = useState(
     "src/assets/onePiece1.jpg"
   );
@@ -110,8 +114,8 @@ export default function DisplayHomePage() {
   }
 
   useEffect(() => {
-    HeadingName()
-  }, [themeName])
+    HeadingName();
+  }, [themeName]);
 
   function DisplayCenterSection() {
     return (
@@ -141,10 +145,20 @@ export default function DisplayHomePage() {
     );
   }
 
+  function HelpBoxDisplay() {
+    setShowHelpBox(!showHelpBox);
+  }
+
+  function watchGif() {
+    setWatchGIF(!watchGIF);
+  }
+
   return (
     <>
       <div id="homeSection" style={sectionStyle}>
-        {gameDifficulty === false ? (
+        {watchGIF === true ? (
+          <DisplayGif />
+        ) : gameDifficulty === false ? (
           <DisplayCenterSection />
         ) : (
           <DisplayGameSection
@@ -164,7 +178,7 @@ export default function DisplayHomePage() {
             <img src={soundBoxImage} className="bottomBoxImage" alt="Sound" />
             <audio id="audioElement" src={themeAudio} autoPlay></audio>
           </div>
-          <div className="helpBoxContainer">
+          <div className="helpBoxContainer" onClick={HelpBoxDisplay}>
             <img
               src="src/assets/help.png"
               className="bottomBoxImage"
@@ -172,7 +186,24 @@ export default function DisplayHomePage() {
             />
           </div>
         </div>
-        <div className="bottomLeftContainer">Theme</div>
+        {gameDifficulty === false && (
+          <div className="bottomLeftContainer">Theme</div>
+        )}
+        {showHelpBox === true && (
+          <div className="helpBoxCard">
+            Choose a character that you have not picked before. Succesfully pick
+            5 in a row to win the game.
+          </div>
+        )}
+        {watchGIF === false ? (
+          <div className="topRightContainer" onClick={watchGif}>
+            Or watch a gif instead?
+          </div>
+        ) : (
+          <div className="topRightContainer" onClick={watchGif}>
+            Or play a game instead?
+          </div>
+        )}
       </div>
     </>
   );

@@ -1,4 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
+import ReactCardFlip from "react-card-flip";
+import Tilt from "react-parallax-tilt";
 
 /* eslint-disable react/prop-types */
 export default function EasyMode({
@@ -7,27 +10,34 @@ export default function EasyMode({
   dragonBallList,
   score,
   setScore,
-  gameOver,
-  setGameOver,
   gameDifficulty,
   setGameDifficulty,
-  themeName
+  themeName,
 }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [lostGame, setLostGame] = useState(false);
   const [shuffledThemeList, setShuffledThemeList] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
-let cardsTheme = onePieceList
-  console.log(cardsTheme, themeName)
+  const [cardBackside, setCardBackside] = useState(
+    "src/assets/cardBackside/onePiece-cardBackside.jpg"
+  );
+  let cardsTheme = onePieceList;
+
+  const flipCard = () => setIsFlipped(!isFlipped);
 
   function CardThemeArray() {
-if(themeName === 'One Piece') {
-cardsTheme = onePieceList
-} else if (themeName === 'Naruto') {
-  cardsTheme = narutoList
-} else if(themeName === 'Dragon Ball') {
-  cardsTheme = dragonBallList
-} else {
-  alert('Something went wrong with character card theme...')
-}
+    if (themeName === "One Piece") {
+      cardsTheme = onePieceList;
+      setCardBackside("src/assets/cardBackside/onePiece-cardBackside.jpg");
+    } else if (themeName === "Naruto") {
+      cardsTheme = narutoList;
+      setCardBackside("src/assets/cardBackside/naruto-cardBackside.jpg");
+    } else if (themeName === "Dragon Ball") {
+      cardsTheme = dragonBallList;
+      setCardBackside("src/assets/cardBackside/dragonball-cardBackside.jpg");
+    } else {
+      alert("Something went wrong with character card theme...");
+    }
   }
 
   function ShuffleArray(array) {
@@ -38,12 +48,9 @@ cardsTheme = onePieceList
   }
 
   function ShuffleCards() {
-    CardThemeArray()
-    console.log(cardsTheme)
+    CardThemeArray();
     let shuffledList;
     let shuffled = ShuffleArray(cardsTheme);
-
-    console.log(shuffled)
 
     if (clickedCards.length > 0) {
       shuffled = shuffled.filter(
@@ -56,27 +63,28 @@ cardsTheme = onePieceList
       };
 
       gameDifficulty === "easy"
-        ? (shuffledList = [shuffled[0], shuffled[1], selectedClickedCard()])
+        ? (shuffledList = ShuffleArray([
+            shuffled[0],
+            shuffled[1],
+            selectedClickedCard(),
+          ]))
         : gameDifficulty === "medium"
-        ? (shuffledList = [
+        ? (shuffledList = ShuffleArray([
             shuffled[0],
             shuffled[1],
             shuffled[2],
             selectedClickedCard(),
-          ])
+          ]))
         : gameDifficulty === "hard"
-        ? (shuffledList = [
+        ? (shuffledList = ShuffleArray([
             shuffled[0],
             shuffled[1],
             shuffled[2],
             shuffled[3],
             selectedClickedCard(),
-          ])
+          ]))
         : alert("Error: Something went wrong please refresh...");
-
-      ShuffleArray(shuffledList);
     } else {
-      console.log(shuffled[0], shuffled[1], shuffled[2], shuffled)
       gameDifficulty === "easy"
         ? (shuffledList = [shuffled[0], shuffled[1], shuffled[2]])
         : gameDifficulty === "medium"
@@ -90,7 +98,6 @@ cardsTheme = onePieceList
             shuffled[4],
           ])
         : alert("Error: Something went wrong please refresh...");
-        console.log(shuffledList)
     }
 
     setShuffledThemeList(shuffledList);
@@ -101,8 +108,18 @@ cardsTheme = onePieceList
   }, [score]);
 
   function handleCardClick(Element) {
+    flipCard();
+    for (let i = 0; i < clickedCards.length; i++) {
+      if (clickedCards[i][0] === Element[0]) {
+        setLostGame(true);
+      }
+    }
     setClickedCards((prevClicked) => [...prevClicked, Element]);
     setScore((prevScore) => prevScore + 1);
+
+    setTimeout(() => {
+      setIsFlipped(false);
+    }, 800);
   }
 
   function HandlePlayAgainClick() {
@@ -116,7 +133,9 @@ cardsTheme = onePieceList
       <>
         <div className="gameOverContainer">
           <div className="gameOverHeading">
-            Congratulations, You have won the game.
+            {lostGame === false && "Congratulations, You have won the game."}
+            {lostGame === true &&
+              "You Clicked on a previously clicked Character. You lose..."}
           </div>
           <div className="gameOverButtons">
             <button className="playAgain" onClick={HandlePlayAgainClick}>
@@ -130,20 +149,28 @@ cardsTheme = onePieceList
 
   return (
     <>
-      {gameDifficulty !== false && score < 5 ? (
+      {gameDifficulty !== false && score < 5 && lostGame === false ? (
         <div className="gameCardsContainer">
           {shuffledThemeList.map((Element, index) => {
-            console.log(shuffledThemeList)
             return (
-              <div
-                key={index}
-                className="characterCard"
-                data-value={[Element]}
-                onClick={() => handleCardClick(Element)}
-              >
-                <img src={Element[1]} className="characterImage" alt="" />
-                <div className="characterHeading">{Element[0]}</div>
-              </div>
+              <Tilt key={index}>
+                <ReactCardFlip
+                  isFlipped={isFlipped}
+                  flipDirection="horizontal"
+                >
+                  <div
+                    className="characterCard"
+                    data-value={[Element]}
+                    onClick={() => handleCardClick(Element)}
+                  >
+                    <img src={Element[1]} className="characterImage" alt="" />
+                    <div className="characterHeading">{Element[0]}</div>
+                  </div>
+                  <div className="cardBackSide characterCard">
+                    <img src={cardBackside} className="" alt="" />
+                  </div>
+                </ReactCardFlip>
+              </Tilt>
             );
           })}
         </div>

@@ -83,3 +83,25 @@
 .difficultyCard:hover {
   cursor: pointer;
 }
+
+.helpBoxCard {
+  width: 300px;
+  background-color: white;
+  position: absolute;
+  padding: 15px;
+  right: 217px;
+bottom: 10%;
+color: black;
+  font-size: 1.1rem;
+}
+
+.topRightContainer {
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+  padding: 15px;
+  right: 217px;
+top: 10%;
+color: black;
+  font-size: 1.5rem;
+}
