@@ -11,7 +11,7 @@ export default function DisplayHomePage() {
   const [themeFont, setThemeFont] = useState("onePiece");
   const [themeLogo, setThemeLogo] = useState("");
   const [themeBackground, setThemeBackground] = useState(
-    "public/onePiece1.jpg"
+    "/onePiece1.jpg"
   );
   const [themeAudio, setThemeAudio] = useState(
     "/drumsOfLiberation.mp3"
