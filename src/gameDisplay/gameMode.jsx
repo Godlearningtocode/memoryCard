@@ -17,22 +17,22 @@ export default function DisplayGameSection({
   const [gameOver, setGameOver] = useState(false);
 
   // One Piece Characters variable assignment and array assignment
-  let nami = ["Nami", "src/assets/onePiece-Characters/nami.webp"];
+  let nami = ["Nami", "public/onePiece-Characters/nami.webp"];
   let whitebeard = [
     "Whitebeard",
-    "src/assets/onePiece-Characters/whitebeard.webp",
+    "public/onePiece-Characters/whitebeard.webp",
   ];
-  let luffy = ["Luffy", "src/assets/onePiece-Characters/luffy.webp"];
-  let ace = ["Ace", "src/assets/onePiece-Characters/ace.webp"];
-  let brook = ["Brook", "src/assets/onePiece-Characters/brook.webp"];
-  let jinbe = ["Jinbe", "src/assets/onePiece-Characters/jinbe.webp"];
-  let law = ["Law", "src/assets/onePiece-Characters/law.webp"];
-  let robin = ["Robin", "src/assets/onePiece-Characters/robin.webp"];
-  let roger = ["Gol D Roger", "src/assets/onePiece-Characters/roger.webp"];
-  let sabo = ["Sabo", "src/assets/onePiece-Characters/sabo.webp"];
-  let sanji = ["Sanji", "src/assets/onePiece-Characters/sanji.webp"];
-  let shanks = ["Shanks", "src/assets/onePiece-Characters/shanks.webp"];
-  let zoro = ["Zoro", "src/assets/onePiece-Characters/zoro.webp"];
+  let luffy = ["Luffy", "public/onePiece-Characters/luffy.webp"];
+  let ace = ["Ace", "public/onePiece-Characters/ace.webp"];
+  let brook = ["Brook", "public/onePiece-Characters/brook.webp"];
+  let jinbe = ["Jinbe", "public/onePiece-Characters/jinbe.webp"];
+  let law = ["Law", "public/onePiece-Characters/law.webp"];
+  let robin = ["Robin", "public/onePiece-Characters/robin.webp"];
+  let roger = ["Gol D Roger", "public/onePiece-Characters/roger.webp"];
+  let sabo = ["Sabo", "public/onePiece-Characters/sabo.webp"];
+  let sanji = ["Sanji", "public/onePiece-Characters/sanji.webp"];
+  let shanks = ["Shanks", "public/onePiece-Characters/shanks.webp"];
+  let zoro = ["Zoro", "public/onePiece-Characters/zoro.webp"];
 
   let onePieceList = [];
   onePieceList.push(
@@ -52,23 +52,23 @@ export default function DisplayGameSection({
   );
 
   // Naruto characters variable assigment and array populating
-  let hinata = ["Hyuga Hinata", "src/assets/naruto-characters/hinata.jpg"];
-  let itachi = ["Uchiha Itachi", "src/assets/naruto-characters/itachi.jpg"];
-  let jiraiya = ["Jiraiya", "src/assets/naruto-characters/jiraiya.jpg"];
-  let kakashi = ["Hatake Kakashi", "src/assets/naruto-characters/kakashi.jpg"];
-  let madara = ["Uchiha Madara", "src/assets/naruto-characters/madara.jpg"];
-  let naruto = ["Uzumaki Naruto", "src/assets/naruto-characters/naruto.jpg"];
-  let neji = ["Hyuga Neji", "src/assets/naruto-characters/neji.jpg"];
-  let obito = ["Uchiha Obito", "src/assets/naruto-characters/obito.jpg"];
-  let pain = ["Pain", "src/assets/naruto-characters/pain.jpg"];
-  let lee = ["Rock Lee", "src/assets/naruto-characters/rockLee.jpg"];
-  let sakura = ["Haruno Sakura", "src/assets/naruto-characters/sakura.jpg"];
-  let sasuke = ["Uchiha Sasuke", "src/assets/naruto-characters/sasuke.jpg"];
+  let hinata = ["Hyuga Hinata", "public/naruto-characters/hinata.jpg"];
+  let itachi = ["Uchiha Itachi", "public/naruto-characters/itachi.jpg"];
+  let jiraiya = ["Jiraiya", "public/naruto-characters/jiraiya.jpg"];
+  let kakashi = ["Hatake Kakashi", "public/naruto-characters/kakashi.jpg"];
+  let madara = ["Uchiha Madara", "public/naruto-characters/madara.jpg"];
+  let naruto = ["Uzumaki Naruto", "public/naruto-characters/naruto.jpg"];
+  let neji = ["Hyuga Neji", "public/naruto-characters/neji.jpg"];
+  let obito = ["Uchiha Obito", "public/naruto-characters/obito.jpg"];
+  let pain = ["Pain", "public/naruto-characters/pain.jpg"];
+  let lee = ["Rock Lee", "public/naruto-characters/rockLee.jpg"];
+  let sakura = ["Haruno Sakura", "public/naruto-characters/sakura.jpg"];
+  let sasuke = ["Uchiha Sasuke", "public/naruto-characters/sasuke.jpg"];
   let shikamaru = [
     "Nara Shikamaru",
-    "src/assets/naruto-characters/shikamaru.jpg",
+    "public/naruto-characters/shikamaru.jpg",
   ];
-  let tsunade = ["Senju Tsunade", "src/assets/naruto-characters/tsunade.jpg"];
+  let tsunade = ["Senju Tsunade", "public/naruto-characters/tsunade.jpg"];
 
   let narutoList = [];
   narutoList.push(
@@ -91,17 +91,17 @@ export default function DisplayGameSection({
   //  Dragon Ball characters variable assignment and array populating
   let android17 = [
     "Android 17",
-    "src/assets/dragonBall-characters/android17.jpg",
+    "public/dragonBall-characters/android17.jpg",
   ];
-  let bardock = ["Bardock", "src/assets/dragonBall-characters/bardock.jpg"];
-  let broly = ["Broly", "src/assets/dragonBall-characters/broly.jpg"];
-  let frieza = ["Frieza", "src/assets/dragonBall-characters/frieza.jpg"];
-  let gohan = ["Gohan", "src/assets/dragonBall-characters/gohan.jpg"];
-  let Goku = ["Goku", "src/assets/dragonBall-characters/goku.jpg"];
-  let majinBuu = ["Majin Buu", "src/assets/dragonBall-characters/majinBuu.jpg"];
-  let roshi = ["Master Roshi", "src/assets/dragonBall-characters/roshi.jpg"];
-  let trunks = ["Future Trunks", "src/assets/dragonBall-characters/trunks.jpg"];
-  let vegeta = ["Vegeta", "src/assets/dragonBall-characters/vegeta.jpg"];
+  let bardock = ["Bardock", "public/dragonBall-characters/bardock.jpg"];
+  let broly = ["Broly", "public/dragonBall-characters/broly.jpg"];
+  let frieza = ["Frieza", "public/dragonBall-characters/frieza.jpg"];
+  let gohan = ["Gohan", "public/dragonBall-characters/gohan.jpg"];
+  let Goku = ["Goku", "public/dragonBall-characters/goku.jpg"];
+  let majinBuu = ["Majin Buu", "public/dragonBall-characters/majinBuu.jpg"];
+  let roshi = ["Master Roshi", "public/dragonBall-characters/roshi.jpg"];
+  let trunks = ["Future Trunks", "public/dragonBall-characters/trunks.jpg"];
+  let vegeta = ["Vegeta", "public/dragonBall-characters/vegeta.jpg"];
 
   let dragonBallList = [];
   dragonBallList.push(

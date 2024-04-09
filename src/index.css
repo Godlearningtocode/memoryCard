@@ -9,17 +9,17 @@ body, html {
 
 @font-face {
   font-family: onePiece;
-  src: url('src/assets/one piece font.ttf');
+  src: url('/one piece font.ttf');
 }
 
 @font-face {
   font-family: naruto;
-  src: url('src/assets/njnaruto.ttf');
+  src: url('/njnaruto.ttf');
 }
 
 @font-face {
   font-family: dragonBall;
-  src: url('src/assets/Saiyan-Sans.ttf');
+  src: url('/Saiyan-Sans.ttf');
 }
 
 .onePiece {

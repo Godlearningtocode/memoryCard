@@ -11,13 +11,13 @@ export default function DisplayHomePage() {
   const [themeFont, setThemeFont] = useState("onePiece");
   const [themeLogo, setThemeLogo] = useState("");
   const [themeBackground, setThemeBackground] = useState(
-    "src/assets/onePiece1.jpg"
+    "/onePiece1.jpg"
   );
   const [themeAudio, setThemeAudio] = useState(
-    "src/assets/drumsOfLiberation.mp3"
+    "/drumsOfLiberation.mp3"
   );
   const [soundBoxImage, setSoundBoxImage] = useState(
-    "src/assets/sound-off.png"
+    "/sound-off.png"
   );
   const [gameDifficulty, setGameDifficulty] = useState(false);
 
@@ -55,15 +55,15 @@ export default function DisplayHomePage() {
   function ChangeThemeNaruto() {
     setThemeName("Naruto");
     setThemeFont("naruto");
-    setThemeBackground("src/assets/naruto2.jpg");
-    setThemeAudio("src/assets/Naruto.mp3");
+    setThemeBackground("/naruto2.jpg");
+    setThemeAudio("/Naruto.mp3");
   }
 
   function ChangethemeDragonball() {
     setThemeName("Dragon Ball");
     setThemeFont("dragonBall");
-    setThemeBackground("src/assets/dragonBall3.jpg");
-    setThemeAudio("src/assets/dragonBallAudio.mp3");
+    setThemeBackground("/dragonBall3.jpg");
+    setThemeAudio("/dragonBallAudio.mp3");
     document.body.style.color = "white";
     document.querySelector(".bottomLeftContainer").style.color = "black";
     let difficultyCards = document.querySelectorAll(".difficultyCard");
@@ -75,8 +75,8 @@ export default function DisplayHomePage() {
   function ChangeThemeOnePiece() {
     setThemeName("One Piece");
     setThemeFont("onePiece");
-    setThemeBackground("src/assets/onePiece1.jpg");
-    setThemeAudio("src/assets/drumsOfLiberation.mp3");
+    setThemeBackground("/onePiece1.jpg");
+    setThemeAudio("/drumsOfLiberation.mp3");
     document.body.style.color = "black";
     let difficultyCards = document.querySelectorAll(".difficultyCard");
     difficultyCards.forEach((Element) => {
@@ -97,10 +97,10 @@ export default function DisplayHomePage() {
     if (audioElement) {
       if (audioElement.muted) {
         audioElement.muted = false;
-        setSoundBoxImage("src/assets/sound-on.png");
+        setSoundBoxImage("/sound-on.png");
       } else {
         audioElement.muted = true;
-        setSoundBoxImage("src/assets/sound-off.png");
+        setSoundBoxImage("/sound-off.png");
       }
       audioElement
         .play()
@@ -122,11 +122,11 @@ export default function DisplayHomePage() {
 
   function HeadingName() {
     themeName === "One Piece"
-      ? setThemeLogo("src/assets/onePieceLogo.png")
+      ? setThemeLogo("/onePieceLogo.png")
       : themeName === "Naruto"
-      ? setThemeLogo("src/assets/narutoLogo.png")
+      ? setThemeLogo("/narutoLogo.png")
       : themeName === "Dragon Ball"
-      ? setThemeLogo("src/assets/dragonballLogo.png")
+      ? setThemeLogo("/dragonballLogo.png")
       : setThemeLogo("");
   }
 
@@ -197,7 +197,7 @@ export default function DisplayHomePage() {
           </div>
           <div className="helpBoxContainer" onClick={HelpBoxDisplay}>
             <img
-              src="src/assets/help.png"
+              src="/help.png"
               className="bottomBoxImage"
               alt="Help"
             />
