@@ -30,6 +30,27 @@ export default function DisplayHomePage() {
   };
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [gifs, setGifs] = useState([]);
+  const [newGif, setNewGif] = useState(1)
+
+  function fetchNewGif() {
+    setNewGif(newGif + 1)
+  }
+
+  useEffect(() => {
+    const fetchGifs = async () => {
+      const url = `https://api.giphy.com/v1/gifs/search?api_key=d2FE15EsXoKpRksn5uUeqoJv4S9stUkr&q=${themeName}&limit=10&offset=0&rating=g&lang=en&bundle=messaging_non_clips`;
+      try {
+        const response = await fetch(url);
+        const { data } = await response.json();
+        setGifs(data[Math.floor(Math.random() * 11)]);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchGifs();
+  }, [themeName, newGif]);
 
   function ChangeThemeNaruto() {
     setThemeName("Naruto");
@@ -63,17 +84,13 @@ export default function DisplayHomePage() {
     });
   }
 
-  useEffect(() => {
-    document
-      .querySelector(".bottomLeftContainer")
-      .addEventListener("click", () => {
-        themeName === "One Piece"
-          ? ChangeThemeNaruto()
-          : themeName === "Naruto"
-          ? ChangethemeDragonball()
-          : ChangeThemeOnePiece();
-      });
-  }, [themeName]);
+  function handleThemeName() {
+    themeName === "One Piece"
+      ? ChangeThemeNaruto()
+      : themeName === "Naruto"
+      ? ChangethemeDragonball()
+      : ChangeThemeOnePiece();
+  }
 
   function AudioPlay() {
     const audioElement = document.querySelector("#audioElement");
@@ -157,7 +174,7 @@ export default function DisplayHomePage() {
     <>
       <div id="homeSection" style={sectionStyle}>
         {watchGIF === true ? (
-          <DisplayGif />
+          <DisplayGif gifs={gifs} />
         ) : gameDifficulty === false ? (
           <DisplayCenterSection />
         ) : (
@@ -187,7 +204,9 @@ export default function DisplayHomePage() {
           </div>
         </div>
         {gameDifficulty === false && (
-          <div className="bottomLeftContainer">Theme</div>
+          <div className="bottomLeftContainer" onClick={handleThemeName}>
+            Theme
+          </div>
         )}
         {showHelpBox === true && (
           <div className="helpBoxCard">
@@ -200,9 +219,11 @@ export default function DisplayHomePage() {
             Or watch a gif instead?
           </div>
         ) : (
-          <div className="topRightContainer" onClick={watchGif}>
-            Or play a game instead?
+          <div className="topRightContainer" >
+            <div className="playGameContainer" onClick={watchGif}>Or play a game instead?</div>
+            <div className="newGifContainer" onClick={fetchNewGif}>New GIF</div>
           </div>
+
         )}
       </div>
     </>

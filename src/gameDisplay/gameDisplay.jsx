@@ -14,25 +14,7 @@ export default function DisplayGameSection({
   setHighScore,
   setGameDifficulty,
 }) {
-  const [gifs, setGifs] = useState([]);
-
   const [gameOver, setGameOver] = useState(false);
-
-  //   useEffect(() => {
-  //     const fetchGifs = async () => {
-  //       const url =
-  //         "https://api.giphy.com/v1/gifs/search?api_key=d2FE15EsXoKpRksn5uUeqoJv4S9stUkr&q=luffy&limit=7&offset=0&rating=g&lang=en&bundle=messaging_non_clips";
-  //       try {
-  //         const response = await fetch(url);
-  //         const { data } = await response.json();
-  //         setGifs(data);
-  //       } catch (error) {
-  //         console.error(error);
-  //       }
-  //     };
-
-  //     fetchGifs();
-  //   }, []);
 
   // One Piece Characters variable assignment and array assignment
   let nami = ["Nami", "src/assets/onePiece-Characters/nami.webp"];

@@ -76,3 +76,30 @@
   left: 220px;
   color: white;
 }
+
+.gameOverContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  gap: 15px;
+  border-radius: 5px;
+}
+
+.gameOverHeading {
+  color: white;
+}
+
+.playAgain {
+  background-color: inherit;
+  padding: 10px 25px;
+  font-weight: 100;
+  font-family: inherit;
+  font-size: inherit;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
