@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import "./gameDisplay.css";
-import EasyMode from "../gameModes/easyMode";
+import "./gameMode.css";
+import EasyMode from "../gameLogics/gameLogic";
 
 export default function DisplayGameSection({
   themeName,

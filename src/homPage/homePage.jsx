@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import "./homePage.css";
-import DisplayGameSection from "../gameDisplay/gameDisplay";
+import DisplayGameSection from "../gameDisplay/gameMode";
 import DisplayGif from "../gifDisplay/displayGif";
 
 export default function DisplayHomePage() {
@@ -225,7 +225,9 @@ export default function DisplayHomePage() {
           </div>
 
         )}
+              <footer>Made by: Shivam Agarwal</footer>
       </div>
+
     </>
   );
 }
