@@ -17,22 +17,22 @@ export default function DisplayGameSection({
   const [gameOver, setGameOver] = useState(false);
 
   // One Piece Characters variable assignment and array assignment
-  let nami = ["Nami", "public/nami.webp"];
+  let nami = ["Nami", "/nami.webp"];
   let whitebeard = [
     "Whitebeard",
-    "public/whitebeard.webp",
+    "/whitebeard.webp",
   ];
-  let luffy = ["Luffy", "public/luffy.webp"];
-  let ace = ["Ace", "public/ace.webp"];
-  let brook = ["Brook", "public/brook.webp"];
-  let jinbe = ["Jinbe", "public/jinbe.webp"];
-  let law = ["Law", "public/law.webp"];
-  let robin = ["Robin", "public/robin.webp"];
-  let roger = ["Gol D Roger", "public/roger.webp"];
-  let sabo = ["Sabo", "public/sabo.webp"];
-  let sanji = ["Sanji", "public/sanji.webp"];
-  let shanks = ["Shanks", "public/shanks.webp"];
-  let zoro = ["Zoro", "public/zoro.webp"];
+  let luffy = ["Luffy", "/luffy.webp"];
+  let ace = ["Ace", "/ace.webp"];
+  let brook = ["Brook", "/brook.webp"];
+  let jinbe = ["Jinbe", "/jinbe.webp"];
+  let law = ["Law", "/law.webp"];
+  let robin = ["Robin", "/robin.webp"];
+  let roger = ["Gol D Roger", "/roger.webp"];
+  let sabo = ["Sabo", "/sabo.webp"];
+  let sanji = ["Sanji", "/sanji.webp"];
+  let shanks = ["Shanks", "/shanks.webp"];
+  let zoro = ["Zoro", "/zoro.webp"];
 
   let onePieceList = [];
   onePieceList.push(
@@ -52,23 +52,23 @@ export default function DisplayGameSection({
   );
 
   // Naruto characters variable assigment and array populating
-  let hinata = ["Hyuga Hinata", "public/hinata.jpg"];
-  let itachi = ["Uchiha Itachi", "public/itachi.jpg"];
-  let jiraiya = ["Jiraiya", "public/jiraiya.jpg"];
-  let kakashi = ["Hatake Kakashi", "public/kakashi.jpg"];
-  let madara = ["Uchiha Madara", "public/madara.jpg"];
-  let naruto = ["Uzumaki Naruto", "public/naruto.jpg"];
-  let neji = ["Hyuga Neji", "public/neji.jpg"];
-  let obito = ["Uchiha Obito", "public/obito.jpg"];
-  let pain = ["Pain", "public/pain.jpg"];
-  let lee = ["Rock Lee", "public/rockLee.jpg"];
-  let sakura = ["Haruno Sakura", "public/sakura.jpg"];
-  let sasuke = ["Uchiha Sasuke", "public/sasuke.jpg"];
+  let hinata = ["Hyuga Hinata", "/hinata.jpg"];
+  let itachi = ["Uchiha Itachi", "/itachi.jpg"];
+  let jiraiya = ["Jiraiya", "/jiraiya.jpg"];
+  let kakashi = ["Hatake Kakashi", "/kakashi.jpg"];
+  let madara = ["Uchiha Madara", "/madara.jpg"];
+  let naruto = ["Uzumaki Naruto", "/naruto.jpg"];
+  let neji = ["Hyuga Neji", "/neji.jpg"];
+  let obito = ["Uchiha Obito", "/obito.jpg"];
+  let pain = ["Pain", "/pain.jpg"];
+  let lee = ["Rock Lee", "/rockLee.jpg"];
+  let sakura = ["Haruno Sakura", "/sakura.jpg"];
+  let sasuke = ["Uchiha Sasuke", "/sasuke.jpg"];
   let shikamaru = [
     "Nara Shikamaru",
-    "public/shikamaru.jpg",
+    "/shikamaru.jpg",
   ];
-  let tsunade = ["Senju Tsunade", "public/tsunade.jpg"];
+  let tsunade = ["Senju Tsunade", "/tsunade.jpg"];
 
   let narutoList = [];
   narutoList.push(
@@ -91,17 +91,17 @@ export default function DisplayGameSection({
   //  Dragon Ball characters variable assignment and array populating
   let android17 = [
     "Android 17",
-    "public/android17.jpg",
+    "/android17.jpg",
   ];
-  let bardock = ["Bardock", "public/bardock.jpg"];
-  let broly = ["Broly", "public/broly.jpg"];
-  let frieza = ["Frieza", "public/frieza.jpg"];
-  let gohan = ["Gohan", "public/gohan.jpg"];
-  let Goku = ["Goku", "public/goku.jpg"];
-  let majinBuu = ["Majin Buu", "public/majinBuu.jpg"];
-  let roshi = ["Master Roshi", "public/roshi.jpg"];
-  let trunks = ["Future Trunks", "public/trunks.jpg"];
-  let vegeta = ["Vegeta", "public/vegeta.jpg"];
+  let bardock = ["Bardock", "/bardock.jpg"];
+  let broly = ["Broly", "/broly.jpg"];
+  let frieza = ["Frieza", "/frieza.jpg"];
+  let gohan = ["Gohan", "/gohan.jpg"];
+  let Goku = ["Goku", "/goku.jpg"];
+  let majinBuu = ["Majin Buu", "/majinBuu.jpg"];
+  let roshi = ["Master Roshi", "/roshi.jpg"];
+  let trunks = ["Future Trunks", "/trunks.jpg"];
+  let vegeta = ["Vegeta", "/vegeta.jpg"];
 
   let dragonBallList = [];
   dragonBallList.push(
