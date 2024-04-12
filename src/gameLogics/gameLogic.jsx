@@ -19,7 +19,7 @@ export default function EasyMode({
   const [shuffledThemeList, setShuffledThemeList] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
   const [cardBackside, setCardBackside] = useState(
-    "public/cardBackside/onePiece-cardBackside.jpg"
+    "public/onePiece-cardBackside.jpg"
   );
   let cardsTheme = onePieceList;
 
@@ -28,13 +28,13 @@ export default function EasyMode({
   function CardThemeArray() {
     if (themeName === "One Piece") {
       cardsTheme = onePieceList;
-      setCardBackside("public/cardBackside/onePiece-cardBackside.jpg");
+      setCardBackside("public/onePiece-cardBackside.jpg");
     } else if (themeName === "Naruto") {
       cardsTheme = narutoList;
-      setCardBackside("public/cardBackside/naruto-cardBackside.jpg");
+      setCardBackside("public/naruto-cardBackside.jpg");
     } else if (themeName === "Dragon Ball") {
       cardsTheme = dragonBallList;
-      setCardBackside("public/cardBackside/dragonball-cardBackside.jpg");
+      setCardBackside("public/dragonball-cardBackside.jpg");
     } else {
       alert("Something went wrong with character card theme...");
     }
